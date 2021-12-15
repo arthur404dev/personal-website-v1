@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 5505",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.4.2",
+    "@svgr/webpack": "^6.1.2",
+    "graphql": "^16.1.0",
+    "graphql-request": "^3.7.0",
+    "next": "latest",
+    "next-themes": "^0.0.15",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^3.0.0"
+  }
+}
