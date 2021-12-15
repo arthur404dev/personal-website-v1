@@ -1,16 +1,18 @@
 import React from "react"
+import { ThemeToggle } from ".."
 import Logo from "../../assets/images/logo.svg"
+import LanguageToggle from "../LanguageToggle"
 
-const Navbar = ({ navigationLinks }) => {
+const Navbar = ({ navigationLinks, locale }) => {
   return (
-    <nav className='w-full bg-darkest border-b-4 border-darker'>
-      <div className='flex justify-between h-28 w-4/5 items-center px-20 m-auto'>
+    <nav className='w-full h-28 bg-darkest border-b-4 border-darker fixed top-0 inset-x-0'>
+      <div className='flex justify-between h-full w-4/5 items-center px-20 m-auto'>
         <div className='w-1/4'>
           <a href={`#home`}>
             <Logo className='fill-accent-tertiary h-24 hover:fill-white transition-all ease-in-out' />
           </a>
         </div>
-        <div className='flex'>
+        <div className='flex items-center'>
           {navigationLinks.map(({ displayName, id, target, isButton }) =>
             isButton ? (
               <div
@@ -32,6 +34,10 @@ const Navbar = ({ navigationLinks }) => {
               </div>
             ),
           )}
+          <div className='ml-16 flex flex-col'>
+            <LanguageToggle />
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </nav>

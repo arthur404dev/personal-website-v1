@@ -1,16 +1,18 @@
 import { gql } from "graphql-request"
-import { useTheme } from "next-themes"
-import { Navbar, Footer, ThemeToggle } from "../components"
+import { Navbar, Footer } from "../components"
 import { graphCMSClient } from "../services"
 
-export default function Home({ navigationLinks }) {
-  const { theme, setTheme } = useTheme()
+export default function Home({ navigationLinks, locale }) {
   return (
-    <>
+    <div className='py-28'>
       <Navbar navigationLinks={navigationLinks} />
-      <ThemeToggle />
+      <main className='h-screen w-screen snap-y snap-mandatory overflow-scroll overflow-x-hidden'>
+        <div className='h-screen bg-red-200 snap-start'></div>
+        <div className='h-screen bg-blue-200 snap-start'></div>
+        <div className='h-screen bg-green-200 snap-start'></div>
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }
 
