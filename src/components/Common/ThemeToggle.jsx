@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Switch } from "@headlessui/react"
 import { useTheme } from "next-themes"
-import { MdDarkMode, MdLightMode } from "react-icons/md"
+import { MdLightMode } from "react-icons/md"
 import { FaMoon } from "react-icons/fa"
 
 const ThemeToggle = () => {
@@ -24,22 +24,22 @@ const ThemeToggle = () => {
           onChange={setDarkMode}
           className={`${
             theme === "light"
-              ? "border-0 bg-accent-tertiary"
-              : "border-2 border-accent-tertiary bg-darkest"
+              ? "border-0 bg-theme-pink"
+              : "border-2 border-theme-pink bg-theme-darkest"
           }  relative inline-flex items-center h-6 rounded-full w-11`}
         >
           <span className='sr-only'>Toggle DarkMode</span>
           <span
             className={`${
               theme === "light"
-                ? "translate-x-1 bg-darkest w-4 h-4"
-                : "translate-x-6 bg-accent-tertiary w-3 h-3"
+                ? "translate-x-1 bg-theme-darkest w-4 h-4"
+                : "translate-x-6 bg-theme-pink w-3 h-3"
             } inline-block transform rounded-full transition ease-in-out duration-400`}
           />
           {theme === "light" ? (
-            <MdLightMode className='absolute left-6 text-darkest inline-block w-4 h-4' />
+            <MdLightMode className='absolute left-6 text-theme-darkest inline-block w-4 h-4' />
           ) : (
-            <FaMoon className='absolute left-1 text-accent-tertiary inline-block w-3 h-3' />
+            <FaMoon className='absolute left-1 text-theme-pink inline-block w-3 h-3' />
           )}
         </Switch>
       )}

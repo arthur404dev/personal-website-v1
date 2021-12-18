@@ -1,3 +1,5 @@
-export { default as ThemeToggle } from "./ThemeToggle"
 export { default as Navbar } from "./Layout/Navbar"
 export { default as Footer } from "./Layout/Footer"
+export { default as Hero } from "./Sections/Hero"
+export { default as CTAOverlay } from "./Sections/CTAOverlay"
+export { default as About } from "./Sections/About"

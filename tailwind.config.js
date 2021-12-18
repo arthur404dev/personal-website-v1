@@ -7,12 +7,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        darkest: "#161926",
-        darker: "#181B28",
-        dark: "#292442",
-        "accent-primary": "#B1B2F3",
-        "accent-secondary": "#83EFE1",
-        "accent-tertiary": "#F876F1",
+        "theme-darkest": "#161926",
+        "theme-darker": "#181B28",
+        "theme-dark-tone": "rgba(41, 36, 66, 0.4)",
+        "theme-dark": "#292442",
+        "theme-purple": "#B1B2F3",
+        "theme-cyan": "#83EFE1",
+        "theme-pink": "#F876F1",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
