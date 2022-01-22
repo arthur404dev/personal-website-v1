@@ -1,19 +1,23 @@
-import React from "react"
+import React, { useState } from "react"
 import Link from "next/link"
 import Logo from "../../assets/images/logo.svg"
 import LanguageToggle from "../Common/LanguageToggle"
 import ThemeToggle from "../Common/ThemeToggle"
+import { Transition } from "@headlessui/react"
+
+import { IoMenuSharp, IoCloseOutline } from "react-icons/io5"
 
 const Navbar = ({ navigationLinks }) => {
+  const [isOpen, setIsOpen] = useState(false)
   return (
-    <nav className='w-full h-28 bg-theme-darkest border-b-4 border-theme-darker fixed top-0 inset-x-0'>
-      <div className='flex justify-between h-full w-4/5 items-center px-20 m-auto'>
+    <nav className='w-full h-20 md:h-28 bg-theme-darkest border-b-4 border-theme-darker fixed top-0 z-50 inset-x-0'>
+      <div className='flex justify-between h-full w-11/12 md:w-4/5 items-center md:px-20 m-auto'>
         <div className='w-1/4'>
           <Link passHref href={`#home`}>
-            <Logo className='dark:fill-theme-pink fill-theme-purple h-24 hover:fill-white' />
+            <Logo className='dark:fill-theme-pink cursor-pointer fill-theme-purple h-16 md:h-24 hover:fill-white dark:hover:fill-white' />
           </Link>
         </div>
-        <div className='flex items-center'>
+        <div className='md:flex items-center hidden'>
           {navigationLinks.map(({ displayName, id, target, isButton }) =>
             isButton ? (
               <div
@@ -40,7 +44,67 @@ const Navbar = ({ navigationLinks }) => {
             <ThemeToggle />
           </div>
         </div>
+        <div className='md:hidden flex'>
+          <button
+            onClick={(event) => {
+              event.preventDefault()
+              setIsOpen(!isOpen)
+              return false
+            }}
+            type='button'
+            className='text-4xl text-theme-pink cursor-pointer hover:text-theme-cyan'
+            aria-controls='mobile=menu'
+            aria-expanded='false'
+          >
+            <span className='sr-only'>Open main menu</span>
+            {!isOpen ? <IoMenuSharp /> : <IoCloseOutline />}
+          </button>
+        </div>
       </div>
+      <Transition
+        show={isOpen}
+        enter='transition ease-out duration-100 transform'
+        enterFrom='opacity-0 scale-95'
+        enterTo='opacity-100 scale-100'
+        leave='transition ease-in duration-75 transform'
+        leaveFrom='opacity-100 scale-100'
+        leaveTo='opacity-0 scale-95'
+      >
+        {(ref) => (
+          <div className='md:hidden overflow-hidden relative' id='mobile-menu'>
+            <div
+              ref={ref}
+              className='dark:bg-theme-darkest bg-theme-purple h-screen w-screen inset-0 p-12 flex flex-col relative'
+            >
+              <div className='flex flex-col items-center'>
+                {navigationLinks.map(({ displayName, id, target }) => (
+                  <div
+                    key={id}
+                    className='cursor-pointer dark:text-theme-purple text-theme-darkest uppercase hover:text-theme-pink transition-all ease-in-out mb-6'
+                  >
+                    <Link passHref href={`#${target}`}>
+                      <span
+                        onClick={() => setIsOpen(!isOpen)}
+                        className='font-fira text-3xl'
+                      >
+                        {displayName}
+                      </span>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+              <div className='mt-16 bg-theme-darkest p-4 w-1/2 m-auto rounded-2xl'>
+                <div className='mb-4'>
+                  <LanguageToggle />
+                </div>
+                <div>
+                  <ThemeToggle />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </Transition>
     </nav>
   )
 }

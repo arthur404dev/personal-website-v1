@@ -8,9 +8,9 @@ const About = () => {
       id='about'
     >
       <div className='w-7/12 h-full m-auto flex flex-col justify-center'>
-        <h1 className='text-6xl font-fira text-theme-cyan mb-12'>{`< about >`}</h1>
-        <div className='flex'>
-          <p className='text-3xl w-2/3'>
+        <h1 className='text-2xl md:text-6xl font-fira text-theme-cyan mb-12'>{`< about >`}</h1>
+        <div className='flex flex-col md:flex-row'>
+          <p className='text-xs md:text-3xl h-2/3 w-full md:w-2/3'>
             "At vero eos et accusamus et iusto odio dignissimos ducimus qui
             blanditiis praesentium voluptatum deleniti atque corrupti quos
             dolores et quas molestias excepturi sint occaecati cupiditate non
@@ -25,7 +25,7 @@ const About = () => {
             sapiente delectus, ut aut reiciendis voluptatibus maiores alias
             consequatur aut perferendis doloribus asperiores repellat."
           </p>
-          <div className='w-1/3 ml-12'>
+          <div className='h-2/3 w-full md:w-1/3 ml-12'>
             <Profile className='rounded-full w-96 h-96 bg-theme-dark self-center' />
           </div>
         </div>

@@ -1,6 +1,5 @@
 import { gql } from "graphql-request"
 import { Navbar, Footer, Hero, CTAOverlay, About } from "../components"
-import Mail from "../components/Common/Mail"
 import { graphCMSClient } from "../services"
 
 export default function Home({

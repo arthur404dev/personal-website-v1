@@ -30,21 +30,23 @@ const Hero = ({ content }) => {
 
   return (
     <div
-      className='w-screen h-screen dark:bg-theme-darkest bg-theme-purple'
+      className='w-screen h-screen dark:bg-theme-darkest bg-theme-purple flex flex-col md:flex-row'
       id={slug}
     >
-      <div className='w-3/5 h-full m-auto flex items-center'>
-        <div className='w-1/2 text-left'>
-          <h3 className='font-fira dark:text-theme-cyan text-theme-dark text-s mb-4'>
+      <div className='w-full md:w-3/5 h-full  md:h-full md:m-auto flex flex-col md:flex-row items-center justify-center'>
+        <div className='w-4/5 h-1/2 md:w-1/2 md:h-full text-left md:flex md:flex-col md:justify-center'>
+          <h3 className='font-fira dark:text-theme-cyan text-theme-dark text-sm md:text-lg mb-4'>
             {header}
           </h3>
           <div className='flex'>
-            <h1 className='font-inter dark:text-theme-purple text-theme-dark text-6xl font-bold mb-8'>
+            <h1 className='font-inter dark:text-theme-purple text-theme-dark text-3xl md:text-6xl font-bold mb-8'>
               {main}
             </h1>
-            <span className='text-6xl animate-bounce ml-4'>{emoji}</span>
+            <span className='text-3xl md:text-6xl animate-bounce ml-4'>
+              {emoji}
+            </span>
           </div>
-          <h2 className='font-inter dark:text-white text-3xl'>
+          <h2 className='font-inter dark:text-white text-lg md:text-3xl'>
             {preText}
             <span className='dark:text-theme-cyan text-theme-dark font-inter'>
               <Typewriter
@@ -59,8 +61,8 @@ const Hero = ({ content }) => {
             </span>
           </h2>
         </div>
-        <div className='w-1/2 h-full'>
-          <HeroImg className='h-3/4 mt-40 fill-theme-dark dark:fill-theme-purple' />
+        <div className='hidden w-4/5 h-1/2 md:w-1/2 md:h-full md:flex items-center justify-center'>
+          <HeroImg className='h-full mb-20 md:mt-40 fill-theme-dark dark:fill-theme-purple' />
         </div>
       </div>
     </div>
