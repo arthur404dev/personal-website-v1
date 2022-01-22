@@ -9,7 +9,7 @@ export default function Home({
   contactMail,
 }) {
   return (
-    <div className='py-28'>
+    <div className='py-20 md:py-28'>
       <Navbar navigationLinks={navigationLinks} />
       {/* CTA Overlay */}
       <CTAOverlay socialContent={socialContent} contactMail={contactMail} />
