@@ -9,21 +9,24 @@ export default function Home({
   contactMail,
 }) {
   return (
-    <div className='py-20 md:py-28'>
+    <div className='py-base sm:py-sm md:py-md lg:py-lg xl:py-xl'>
       <Navbar navigationLinks={navigationLinks} />
       {/* CTA Overlay */}
       <CTAOverlay socialContent={socialContent} contactMail={contactMail} />
       {/* Main Section */}
-      <main className='h-screen w-screen snap-y snap-mandatory overflow-scroll overflow-x-hidden'>
+      <main className='content-base sm:content-sm md:content-md lg:content-lg xl:content-xl snap-y snap-mandatory overflow-x-hidden scrollbar-thin scrollbar-track-theme-darker scrollbar-thumb-theme-pink'>
         {/* Hero Section */}
         <div className='snap-start'>
           <Hero content={homeContent} />
         </div>
-        {/* Next Section */}
+        {/* About Section */}
         <div className='snap-start'>
           <About />
         </div>
-        <Footer />
+        {/* Footer Section */}
+        <div className='snap-start'>
+          <Footer />
+        </div>
       </main>
     </div>
   )

@@ -10,7 +10,7 @@ import { IoMenuSharp, IoCloseOutline } from "react-icons/io5"
 const Navbar = ({ navigationLinks }) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <nav className='w-full h-20 md:h-28 bg-theme-darkest border-b-4 border-theme-darker fixed top-0 z-50 inset-x-0'>
+    <nav className='w-full h-base sm:h-sm md:h-md lg:h-lg xl:h-xl bg-theme-darkest border-b-4 border-theme-darker fixed top-0 z-50 inset-x-0'>
       <div className='flex justify-between h-full w-11/12 md:w-4/5 items-center md:px-20 m-auto'>
         <div className='w-1/4'>
           <Link passHref href={`#home`}>

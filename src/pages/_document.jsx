@@ -31,9 +31,8 @@ class MyDocument extends Document {
           <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#161926' />
           <meta name='msapplication-TileColor' content='#603cba' />
           <meta name='theme-color' content='#ffffff' />
-          <title>Arthur Andrade</title>
         </Head>
-        <body className='dark:bg-theme-darkest overflow-x-hidden'>
+        <body className='dark:bg-theme-darkest overflow-x-hidden overflow-y-hidden'>
           <Main />
           <NextScript />
         </body>

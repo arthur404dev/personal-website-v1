@@ -15,11 +15,18 @@ module.exports = {
         "theme-cyan": "#83EFE1",
         "theme-pink": "#F876F1",
       },
+      spacing: {
+        base: "5rem",
+        sm: "6rem",
+        md: "7rem",
+        lg: "8rem",
+        xl: "9rem",
+      },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         fira: ["Fira Mono", "monospace"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 }
