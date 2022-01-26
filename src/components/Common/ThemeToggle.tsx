@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { Switch } from "@headlessui/react"
 import { useTheme } from "next-themes"
 import { MdLightMode } from "react-icons/md"
@@ -6,6 +6,7 @@ import { FaMoon } from "react-icons/fa"
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
   const [darkMode, setDarkMode] = useState(theme === "light" ? false : true)
 
   useEffect(() => {
@@ -15,6 +16,10 @@ const ThemeToggle = () => {
       setTheme("light")
     }
   }, [darkMode])
+
+  // Check for mounting to show UI
+  useEffect(() => setMounted(true), [])
+  if (!mounted) return null
 
   return (
     <div className='text-xs flex items-center justify-center'>

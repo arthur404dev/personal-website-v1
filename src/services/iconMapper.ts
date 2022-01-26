@@ -1,3 +1,4 @@
+import { IconType } from "react-icons"
 import {
   RiTwitterLine,
   RiFacebookBoxLine,
@@ -8,7 +9,11 @@ import {
   RiMailLine,
 } from "react-icons/ri"
 
-const socialMap = {
+interface IconMap {
+  [key: string]: IconType
+}
+
+const socialMap: IconMap = {
   twitter: RiTwitterLine,
   facebook: RiFacebookBoxLine,
   youtube: RiYoutubeLine,
@@ -17,11 +22,13 @@ const socialMap = {
   linkedin: RiLinkedinBoxLine,
 }
 
-const mailingMap = {
+const mailingMap: IconMap = {
   contact: RiMailLine,
 }
 
-export default (value, type) => {
+type IconTypes = "social" | "mail"
+
+export default (value: string, type: IconTypes): IconType | null => {
   switch (type) {
     case "social":
       if (!(value in socialMap)) return null

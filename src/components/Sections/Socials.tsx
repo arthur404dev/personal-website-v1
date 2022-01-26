@@ -1,7 +1,10 @@
-import React from "react"
-import Social from "../Common/Social"
+import { Social } from "../../types"
+import SocialComponent from "../Common/Social"
 
-const Socials = ({ content }) => {
+export interface SocialsProps {
+  content: Social[]
+}
+const Socials = ({ content }: SocialsProps) => {
   return (
     <div className='flex flex-col'>
       {content.map((val) => (
@@ -10,7 +13,7 @@ const Socials = ({ content }) => {
           className='dark:text-theme-pink text-theme-dark text-xl mb-1 hover:text-white dark:hover:text-white hover:animate-pulse'
         >
           <a href={val.url} className='z-0' target={"_blank"}>
-            <Social content={val} />
+            <SocialComponent content={val} />
           </a>
         </div>
       ))}

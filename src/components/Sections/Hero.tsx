@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import HeroImg from "../../assets/images/logo.svg"
 import { Typewriter, useTypewriter } from "react-simple-typewriter"
+import { HeroSection } from "../../types"
 
-const Hero = ({ content }) => {
+export interface HeroProps {
+  content: HeroSection
+}
+
+const Hero = ({ content }: HeroProps) => {
   const { header, emojiList, preText, textList, slug, main } = content
   const config = {
     words: textList,

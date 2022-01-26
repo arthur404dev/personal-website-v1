@@ -1,8 +1,13 @@
-import React from "react"
+import { Mailing, Social } from "../../types"
 import Mail from "../Common/Mail"
 import Socials from "./Socials"
 
-const CTAOverlay = ({ socialContent, contactMail }) => {
+export interface CTAOverlayProps {
+  socialContent: Social[]
+  contactMail: Mailing
+}
+
+const CTAOverlay = ({ socialContent, contactMail }: CTAOverlayProps) => {
   return (
     <div className='w-4/5 mx-auto fixed bottom-0 left-0 right-0 hidden md:flex z-10 justify-between'>
       <div className='flex flex-col-reverse items-center'>

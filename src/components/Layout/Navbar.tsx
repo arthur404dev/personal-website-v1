@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import Logo from "../../assets/images/logo.svg"
 import LanguageToggle from "../Common/LanguageToggle"
@@ -6,15 +6,22 @@ import ThemeToggle from "../Common/ThemeToggle"
 import { Transition } from "@headlessui/react"
 
 import { IoMenuSharp, IoCloseOutline } from "react-icons/io5"
+import { NavigationLink } from "../../types"
 
-const Navbar = ({ navigationLinks }) => {
+export interface NavbarProps {
+  navigationLinks: NavigationLink[]
+}
+
+const Navbar = ({ navigationLinks }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <nav className='w-full h-base sm:h-sm md:h-md lg:h-lg xl:h-xl bg-theme-darkest border-b-4 border-theme-darker fixed top-0 z-50 inset-x-0'>
       <div className='flex justify-between h-full w-11/12 md:w-4/5 items-center md:px-20 m-auto'>
         <div className='w-1/4'>
           <Link passHref href={`#home`}>
-            <Logo className='dark:fill-theme-pink cursor-pointer fill-theme-purple h-16 md:h-24 hover:fill-white dark:hover:fill-white' />
+            <a>
+              <Logo className='dark:fill-theme-pink cursor-pointer fill-theme-purple h-16 md:h-24 hover:fill-white dark:hover:fill-white' />
+            </a>
           </Link>
         </div>
         <div className='md:flex items-center hidden'>
@@ -70,40 +77,35 @@ const Navbar = ({ navigationLinks }) => {
         leaveFrom='opacity-100 scale-100'
         leaveTo='opacity-0 scale-95'
       >
-        {(ref) => (
-          <div className='md:hidden overflow-hidden relative' id='mobile-menu'>
-            <div
-              ref={ref}
-              className='dark:bg-theme-darkest bg-theme-purple h-screen w-screen inset-0 p-12 flex flex-col relative'
-            >
-              <div className='flex flex-col items-center'>
-                {navigationLinks.map(({ displayName, id, target }) => (
-                  <div
-                    key={id}
-                    className='cursor-pointer dark:text-theme-purple text-theme-darkest uppercase hover:text-theme-pink transition-all ease-in-out mb-6'
-                  >
-                    <Link passHref href={`#${target}`}>
-                      <span
-                        onClick={() => setIsOpen(!isOpen)}
-                        className='font-fira text-3xl'
-                      >
-                        {displayName}
-                      </span>
-                    </Link>
-                  </div>
-                ))}
+        <div className='md:hidden overflow-hidden relative' id='mobile-menu'>
+          <div className='dark:bg-theme-darkest bg-theme-purple h-screen w-screen inset-0 p-12 flex flex-col relative'>
+            <div className='flex flex-col items-center'>
+              {navigationLinks.map(({ displayName, id, target }) => (
+                <div
+                  key={id}
+                  className='cursor-pointer dark:text-theme-purple text-theme-darkest uppercase hover:text-theme-pink transition-all ease-in-out mb-6'
+                >
+                  <Link passHref href={`#${target}`}>
+                    <span
+                      onClick={() => setIsOpen(!isOpen)}
+                      className='font-fira text-3xl'
+                    >
+                      {displayName}
+                    </span>
+                  </Link>
+                </div>
+              ))}
+            </div>
+            <div className='mt-16 bg-theme-darkest p-4 w-1/2 m-auto rounded-2xl'>
+              <div className='mb-4'>
+                <LanguageToggle />
               </div>
-              <div className='mt-16 bg-theme-darkest p-4 w-1/2 m-auto rounded-2xl'>
-                <div className='mb-4'>
-                  <LanguageToggle />
-                </div>
-                <div>
-                  <ThemeToggle />
-                </div>
+              <div>
+                <ThemeToggle />
               </div>
             </div>
           </div>
-        )}
+        </div>
       </Transition>
     </nav>
   )
