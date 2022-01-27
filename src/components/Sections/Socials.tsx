@@ -1,5 +1,5 @@
 import { Social as SocialType } from "../../types"
-import SocialComponent from "../Common/SocialComponent"
+import SocialIcon from "../Common/SocialIcon"
 export interface SocialsProps {
   content: SocialType[]
 }
@@ -12,7 +12,7 @@ const Socials = ({ content }: SocialsProps) => {
           className='dark:text-theme-pink text-theme-dark text-xl mb-1 hover:text-white dark:hover:text-white hover:animate-pulse'
         >
           <a href={val.url} className='z-0' target={"_blank"}>
-            <SocialComponent content={val} />
+            <SocialIcon content={val} variant='line' />
           </a>
         </div>
       ))}

@@ -17,23 +17,27 @@ const Home = ({
   socialContent,
   contactMail,
 }: HomeProps) => {
+  const component = "home-page"
   return (
-    <div className='py-base sm:py-sm md:py-md lg:py-lg xl:py-xl'>
+    <div id={component} className='py-base sm:py-sm md:py-md lg:py-lg xl:py-xl'>
       <Navbar navigationLinks={navigationLinks} />
       {/* CTA Overlay */}
       <CTAOverlay socialContent={socialContent} contactMail={contactMail} />
       {/* Main Section */}
-      <main className='content-base sm:content-sm md:content-md lg:content-lg xl:content-xl snap-y snap-mandatory overflow-x-hidden scrollbar-thin scrollbar-track-theme-darker scrollbar-thumb-theme-pink'>
+      <main
+        id={`${component}-content`}
+        className='content-base sm:content-sm md:content-md lg:content-lg xl:content-xl snap-y snap-mandatory overflow-x-hidden scrollbar-thin scrollbar-track-transparent scrollbar-thumb-theme-pink'
+      >
         {/* Hero Section */}
-        <div className='snap-start'>
-          <Hero content={homeContent} />
+        <div id={`${component}-section-hero`} className='snap-start'>
+          <Hero content={homeContent} socials={socialContent} />
         </div>
         {/* About Section */}
-        <div className='snap-start'>
+        <div id={`${component}-section-about`} className='snap-start'>
           <About />
         </div>
         {/* Footer Section */}
-        <div className='snap-start'>
+        <div id={`${component}-section-footer`} className='snap-start'>
           <Footer />
         </div>
       </main>
