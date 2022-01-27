@@ -47,7 +47,7 @@ const Hero = ({ content, socials }: HeroProps) => {
       >
         <div
           id={`${component}-heading`}
-          className='w-4/5 h-3/4 md:w-1/2 md:h-full text-left flex flex-col justify-center'
+          className='max-w-sm sm:max-w-md w-full h-1/2 md:w-1/2 md:h-full text-left flex flex-col justify-end'
         >
           <h3
             id={`${component}-header`}
@@ -55,16 +55,19 @@ const Hero = ({ content, socials }: HeroProps) => {
           >
             {header}
           </h3>
-          <div id={`${component}-main`} className='flex'>
+          <div
+            id={`${component}-main`}
+            className='flex items-center h-1/3 w-full '
+          >
             <h1
               id={`${component}-text`}
-              className='font-inter dark:text-theme-purple text-theme-dark text-3xl md:text-6xl font-bold mb-8'
+              className='w-2/3 font-inter dark:text-theme-purple text-theme-dark text-4xl md:text-6xl font-bold mb-8'
             >
               {main}
             </h1>
             <span
               id={`${component}-emoji`}
-              className='text-3xl md:text-6xl animate-bounce ml-4'
+              className='w-1/3 text-4xl md:text-6xl animate-bounce text-left'
             >
               {emoji}
             </span>
@@ -92,11 +95,15 @@ const Hero = ({ content, socials }: HeroProps) => {
         </div>
         <div
           id={`${component}-socials`}
-          className='w-11/12 h-1/4 flex justify-center items-start md:hidden'
+          className='max-w-sm sm:max-w-md w-full h-1/2 flex items-center justify-between md:hidden'
         >
           {socials.map((social) => (
-            <div className='h-12 w-12 flex items-center justify-center rounded-xl bg-theme-dark text-theme-pink m-2 text-2xl hover:bg-theme-pink hover:text-theme-darkest'>
-              <a href={social.url} className='z-0' target={"_blank"}>
+            <div className='h-12 w-12 rounded-xl bg-theme-dark text-theme-pink even:text-theme-cyan text-2xl hover:bg-theme-pink even:hover:bg-theme-cyan hover:text-theme-darkest'>
+              <a
+                href={social.url}
+                className='z-0 h-full w-ful flex items-center justify-center'
+                target={"_blank"}
+              >
                 <SocialIcon content={social} key={social.id} variant='fill' />
               </a>
             </div>
