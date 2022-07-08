@@ -41,7 +41,7 @@ const Hero = ({ content, socials }: HeroProps) => {
   return (
     <div
       id={component}
-      className='content-base sm:content-sm md:content-md lg:content-lg xl:content-xl dark:bg-theme-darkest bg-theme-purple flex flex-col md:flex-row '
+      className='content-base sm:content-sm md:content-md lg:content-lg xl:content-xl dark:bg-theme-darkest bg-theme-off-white flex flex-col md:flex-row '
     >
       <div
         id={`${component}-container`}
@@ -53,14 +53,14 @@ const Hero = ({ content, socials }: HeroProps) => {
         >
           <h3
             id={`${component}-header`}
-            className='font-fira dark:text-theme-purple text-theme-dark text-lg md:text-lg mb-4'
+            className='font-fira dark:text-theme-purple text-theme-violet text-lg md:text-lg mb-4'
           >
             {header}
           </h3>
           <div id={`${component}-main`} className='flex items-center w-full'>
             <h1
               id={`${component}-text`}
-              className='w-full font-inter dark:text-white text-theme-dark text-4xl md:text-6xl font-bold mb-4'
+              className='w-full font-inter dark:text-white text-black text-4xl md:text-6xl font-bold mb-4'
             >
               {main}
             </h1>
@@ -73,12 +73,12 @@ const Hero = ({ content, socials }: HeroProps) => {
           </div>
           <h2
             id={`${component}-description`}
-            className='h-28 md:h-40 font-inter mb-4 dark:text-theme-purple text-3xl md:text-3xl'
+            className='h-28 md:h-40 font-inter mb-4 text-theme-violet dark:text-theme-purple text-3xl md:text-3xl'
           >
             {preText}
             <span
               id={`${component}-typewriter`}
-              className={`dark:text-theme-pink text-theme-dark font-inter`}
+              className={`dark:text-theme-pink text-theme-midnight font-inter`}
             >
               <Typewriter
                 words={config.words}
@@ -95,7 +95,11 @@ const Hero = ({ content, socials }: HeroProps) => {
             {callToAction?.type === "mail" && (
               <Link passHref href={callToAction?.address}>
                 <a className='w-full' target={"_blank"}>
-                  <button className='w-full bg-transparent font-bold text-theme-pink py-4 px-6 border border-theme-pink rounded hover:text-theme-darker hover:bg-theme-pink hover:border-transparent'>
+                  <button className='w-full font-bold
+                  bg-theme-midnight dark:bg-transparent py-4 px-6 border rounded
+                  text-theme-off-white dark:text-theme-pink  
+                  dark:border-theme-pink 
+                  hover:bg-theme-pink hover:text-theme-darkest  dark:hover:text-theme-darker dark:hover:bg-theme-pink hover:border-transparent'>
                     {callToAction?.text}
                   </button>
                 </a>
@@ -110,7 +114,11 @@ const Hero = ({ content, socials }: HeroProps) => {
           {socials.map((social) => (
             <div
               key={social?.id}
-              className='h-12 w-12 rounded-xl bg-theme-dark text-theme-pink even:text-theme-cyan text-2xl hover:bg-theme-pink even:hover:bg-theme-cyan hover:text-theme-darkest'
+              className='h-12 w-12 rounded-xl text-2xl
+              bg-theme-purple dark:bg-theme-dark 
+              text-theme-midnight even:text-theme-darker dark:text-theme-pink dark:even:text-theme-cyan 
+              hover:bg-theme-pink even:hover:bg-theme-cyan 
+              hover:text-theme-darkest'
             >
               <Link passHref href={social?.url}>
                 <a

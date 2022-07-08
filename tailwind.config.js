@@ -14,6 +14,9 @@ module.exports = {
         "theme-purple": "#B1B2F3",
         "theme-cyan": "#83EFE1",
         "theme-pink": "#F876F1",
+        "theme-violet": "#3E2A5E",
+        "theme-midnight": "#6c65d9",
+        "theme-off-white": "#F8F8F8",
       },
       spacing: {
         base: "5rem",

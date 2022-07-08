@@ -15,12 +15,12 @@ export interface NavbarProps {
 const Navbar = ({ navigationLinks }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <nav className='w-full h-base sm:h-sm md:h-md lg:h-lg xl:h-xl bg-theme-darkest fixed top-0 z-50 inset-x-0'>
+    <nav className='w-full h-base sm:h-sm md:h-md lg:h-lg xl:h-xl bg-theme-off-white dark:bg-theme-darkest fixed top-0 z-50 inset-x-0'>
       <div className='flex justify-between h-full w-full p-7 md:w-4/5 items-center md:px-20 m-auto'>
         <div className='w-1/4'>
           <Link passHref href={`#home`}>
             <a>
-              <Logo className='dark:fill-theme-pink cursor-pointer fill-theme-purple h-12 md:h-24 hover:fill-white dark:hover:fill-white' />
+              <Logo className='dark:fill-theme-pink cursor-pointer fill-theme-darkest h-12 md:h-24 hover:fill-theme-midnight dark:hover:fill-white' />
             </a>
           </Link>
         </div>
@@ -59,7 +59,7 @@ const Navbar = ({ navigationLinks }: NavbarProps) => {
               return false
             }}
             type='button'
-            className='text-4xl text-theme-pink cursor-pointer hover:text-white'
+            className='text-4xl dark:text-theme-pink cursor-pointer fill-theme-darkest hover:text-theme-midnight dark:hover:text-white'
             aria-controls='mobile=menu'
             aria-expanded='false'
           >
@@ -78,7 +78,7 @@ const Navbar = ({ navigationLinks }: NavbarProps) => {
         leaveTo='opacity-0 scale-95'
       >
         <div className='md:hidden overflow-hidden relative' id='mobile-menu'>
-          <div className='dark:bg-theme-darkest bg-theme-purple h-screen w-screen inset-0 p-12 flex flex-col relative'>
+          <div className='dark:bg-theme-darkest bg-theme-off-white h-screen w-screen inset-0 p-12 flex flex-col relative'>
             <div className='flex flex-col items-center'>
               {navigationLinks.map(({ displayName, id, target }) => (
                 <div
@@ -96,7 +96,7 @@ const Navbar = ({ navigationLinks }: NavbarProps) => {
                 </div>
               ))}
             </div>
-            <div className='mt-16 bg-theme-darkest p-4 w-1/2 m-auto rounded-2xl'>
+            <div className='mt-16 bg-theme-off-white dark:bg-theme-darkest p-4 w-1/2 m-auto rounded-2xl'>
               <div className='mb-4'>
                 <LanguageToggle />
               </div>
