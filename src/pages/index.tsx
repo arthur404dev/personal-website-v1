@@ -26,18 +26,18 @@ const Home = ({
       {/* Main Section */}
       <main
         id={`${component}-content`}
-        className='content-base sm:content-sm md:content-md lg:content-lg xl:content-xl snap-y snap-mandatory overflow-x-hidden scrollbar-thin scrollbar-track-transparent scrollbar-thumb-theme-pink'
+        className='content-base sm:content-sm md:content-md lg:content-lg xl:content-xl overflow-x-hidden'
       >
         {/* Hero Section */}
-        <div id={`${component}-section-hero`} className='snap-start'>
+        <div id={`${component}-section-hero`}>
           <Hero content={homeContent} socials={socialContent} />
         </div>
         {/* About Section */}
-        <div id={`${component}-section-about`} className='snap-start'>
+        <div id={`${component}-section-about`}>
           <About />
         </div>
         {/* Footer Section */}
-        <div id={`${component}-section-footer`} className='snap-start'>
+        <div id={`${component}-section-footer`}>
           <Footer />
         </div>
       </main>

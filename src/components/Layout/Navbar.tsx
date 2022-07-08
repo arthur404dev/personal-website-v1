@@ -15,12 +15,12 @@ export interface NavbarProps {
 const Navbar = ({ navigationLinks }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <nav className='w-full h-base sm:h-sm md:h-md lg:h-lg xl:h-xl bg-theme-darkest border-b-4 border-theme-darker fixed top-0 z-50 inset-x-0'>
-      <div className='flex justify-between h-full w-11/12 md:w-4/5 items-center md:px-20 m-auto'>
+    <nav className='w-full h-base sm:h-sm md:h-md lg:h-lg xl:h-xl bg-theme-darkest fixed top-0 z-50 inset-x-0'>
+      <div className='flex justify-between h-full w-full p-7 md:w-4/5 items-center md:px-20 m-auto'>
         <div className='w-1/4'>
           <Link passHref href={`#home`}>
             <a>
-              <Logo className='dark:fill-theme-pink cursor-pointer fill-theme-purple h-16 md:h-24 hover:fill-white dark:hover:fill-white' />
+              <Logo className='dark:fill-theme-pink cursor-pointer fill-theme-purple h-12 md:h-24 hover:fill-white dark:hover:fill-white' />
             </a>
           </Link>
         </div>
@@ -59,7 +59,7 @@ const Navbar = ({ navigationLinks }: NavbarProps) => {
               return false
             }}
             type='button'
-            className='text-4xl text-theme-pink cursor-pointer hover:text-theme-cyan'
+            className='text-4xl text-theme-pink cursor-pointer hover:text-white'
             aria-controls='mobile=menu'
             aria-expanded='false'
           >

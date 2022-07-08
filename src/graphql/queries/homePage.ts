@@ -14,6 +14,11 @@ const query = gql`
       preText
       textList
       emojiList
+      callToAction {
+        text
+        type
+        address
+      }
       main
       slug
     }

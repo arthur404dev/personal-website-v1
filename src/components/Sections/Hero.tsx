@@ -3,6 +3,7 @@ import HeroImg from "../../assets/images/logo.svg"
 import { Typewriter, useTypewriter } from "react-simple-typewriter"
 import { HeroSection, Social } from "../../types"
 import SocialIcon from "../Common/SocialIcon"
+import Link from "next/link"
 
 export interface HeroProps {
   content: HeroSection
@@ -11,13 +12,14 @@ export interface HeroProps {
 
 const Hero = ({ content, socials }: HeroProps) => {
   const component = "hero"
-  const { header, emojiList, preText, textList, slug, main } = content
+  const { header, emojiList, preText, textList, slug, main, callToAction } =
+    content
   const config = {
     words: textList,
     loop: 0,
-    typeSpeed: 70,
-    deleteSpeed: 50,
-    delaySpeed: 1000,
+    typeSpeed: 100,
+    deleteSpeed: 80,
+    delaySpeed: 1500,
     cursor: true,
     cursorStyle: "|",
   }
@@ -47,39 +49,36 @@ const Hero = ({ content, socials }: HeroProps) => {
       >
         <div
           id={`${component}-heading`}
-          className='max-w-sm sm:max-w-md w-full h-1/2 md:w-1/2 md:h-full text-left flex flex-col justify-end'
+          className='max-w-sm sm:max-w-md w-full h-3/4 md:w-1/2 md:h-full text-left flex flex-col justify-start pt-16'
         >
           <h3
             id={`${component}-header`}
-            className='font-fira dark:text-theme-cyan text-theme-dark text-sm md:text-lg mb-4'
+            className='font-fira dark:text-theme-purple text-theme-dark text-lg md:text-lg mb-4'
           >
             {header}
           </h3>
-          <div
-            id={`${component}-main`}
-            className='flex items-center h-1/3 w-full '
-          >
+          <div id={`${component}-main`} className='flex items-center w-full'>
             <h1
               id={`${component}-text`}
-              className='w-2/3 font-inter dark:text-theme-purple text-theme-dark text-4xl md:text-6xl font-bold mb-8'
+              className='w-full font-inter dark:text-white text-theme-dark text-4xl md:text-6xl font-bold mb-4'
             >
               {main}
             </h1>
-            <span
+            {/* <span
               id={`${component}-emoji`}
               className='w-1/3 text-4xl md:text-6xl animate-bounce text-left'
             >
               {emoji}
-            </span>
+            </span> */}
           </div>
           <h2
             id={`${component}-description`}
-            className='h-16 md:h-40 font-inter dark:text-white text-lg md:text-3xl'
+            className='h-28 md:h-40 font-inter mb-4 dark:text-theme-purple text-3xl md:text-3xl'
           >
             {preText}
             <span
               id={`${component}-typewriter`}
-              className='dark:text-theme-cyan text-theme-dark font-inter'
+              className={`dark:text-theme-pink text-theme-dark font-inter`}
             >
               <Typewriter
                 words={config.words}
@@ -92,20 +91,35 @@ const Hero = ({ content, socials }: HeroProps) => {
               />
             </span>
           </h2>
+          <div className='h-28 flex items-center justify-center'>
+            {callToAction?.type === "mail" && (
+              <Link passHref href={callToAction?.address}>
+                <a className='w-full' target={"_blank"}>
+                  <button className='w-full bg-transparent font-bold text-theme-pink py-4 px-6 border border-theme-pink rounded hover:text-theme-darker hover:bg-theme-pink hover:border-transparent'>
+                    {callToAction?.text}
+                  </button>
+                </a>
+              </Link>
+            )}
+          </div>
         </div>
         <div
           id={`${component}-socials`}
-          className='max-w-sm sm:max-w-md w-full h-1/2 flex items-center justify-between md:hidden'
+          className='max-w-sm sm:max-w-md w-full h-1/4 flex items-end justify-between md:hidden'
         >
           {socials.map((social) => (
-            <div className='h-12 w-12 rounded-xl bg-theme-dark text-theme-pink even:text-theme-cyan text-2xl hover:bg-theme-pink even:hover:bg-theme-cyan hover:text-theme-darkest'>
-              <a
-                href={social.url}
-                className='z-0 h-full w-ful flex items-center justify-center'
-                target={"_blank"}
-              >
-                <SocialIcon content={social} key={social.id} variant='fill' />
-              </a>
+            <div
+              key={social?.id}
+              className='h-12 w-12 rounded-xl bg-theme-dark text-theme-pink even:text-theme-cyan text-2xl hover:bg-theme-pink even:hover:bg-theme-cyan hover:text-theme-darkest'
+            >
+              <Link passHref href={social?.url}>
+                <a
+                  className='z-0 h-full w-ful flex items-center justify-center'
+                  target={"_blank"}
+                >
+                  <SocialIcon content={social} key={social.id} variant='fill' />
+                </a>
+              </Link>
             </div>
           ))}
         </div>

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Social as SocialType } from "../../types"
 import SocialIcon from "../Common/SocialIcon"
 export interface SocialsProps {
@@ -11,9 +12,11 @@ const Socials = ({ content }: SocialsProps) => {
           key={val.id}
           className='dark:text-theme-pink text-theme-dark text-xl mb-1 hover:text-white dark:hover:text-white hover:animate-pulse'
         >
-          <a href={val.url} className='z-0' target={"_blank"}>
-            <SocialIcon content={val} variant='line' />
-          </a>
+          <Link passHref href={val.url}>
+            <a className='z-0' target={"_blank"}>
+              <SocialIcon content={val} variant='line' />
+            </a>
+          </Link>
         </div>
       ))}
     </div>
