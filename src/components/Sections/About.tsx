@@ -1,10 +1,17 @@
 import Profile from "../../assets/images/hero.svg"
+import { getComponent } from "../../services"
+import { NavigationLink } from "../../types"
 
-const About = () => {
+export interface AboutProps {
+  components: NavigationLink[]
+}
+
+const About = ({ components }: AboutProps) => {
+  const component = getComponent("about", components).target
   return (
     <div
       className='content-base sm:content-sm md:content-md lg:content-lg xl:content-xl dark:bg-theme-dark-tone bg-theme-purple'
-      id='about'
+      id={component}
     >
       <div className='w-7/12 h-full m-auto flex flex-col justify-center'>
         <h1 className='text-2xl md:text-6xl font-fira text-theme-cyan mb-12'>{`< about >`}</h1>

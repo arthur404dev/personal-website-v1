@@ -5,8 +5,10 @@ const query = gql`
     navigationLinks(locales: [$locale]) {
       displayName
       id
+      identificator
       isButton
       target
+      order
     }
     heroSections(locales: [$locale]) {
       header

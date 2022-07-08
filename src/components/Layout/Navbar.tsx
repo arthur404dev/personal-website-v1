@@ -83,7 +83,7 @@ const Navbar = ({ navigationLinks }: NavbarProps) => {
               {navigationLinks.map(({ displayName, id, target }) => (
                 <div
                   key={id}
-                  className='cursor-pointer dark:text-theme-purple text-theme-darkest uppercase hover:text-theme-pink transition-all ease-in-out mb-6'
+                  className='cursor-pointer dark:text-theme-purple text-theme-darkest uppercase hover:text-theme-midnight dark:hover:text-theme-pink transition-all ease-in-out mb-6'
                 >
                   <Link passHref href={`#${target}`}>
                     <span

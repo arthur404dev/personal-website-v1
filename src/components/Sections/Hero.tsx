@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react"
 import HeroImg from "../../assets/images/logo.svg"
 import { Typewriter, useTypewriter } from "react-simple-typewriter"
-import { HeroSection, Social } from "../../types"
+import { HeroSection, NavigationLink, Social } from "../../types"
 import SocialIcon from "../Common/SocialIcon"
 import Link from "next/link"
+import { getComponent } from "../../services"
 
 export interface HeroProps {
   content: HeroSection
   socials: Social[]
+  components: NavigationLink[]
 }
 
-const Hero = ({ content, socials }: HeroProps) => {
-  const component = "hero"
+const Hero = ({ content, socials, components }: HeroProps) => {
+  const component = getComponent("hero", components).target
   const { header, emojiList, preText, textList, slug, main, callToAction } =
     content
   const config = {
@@ -95,11 +97,13 @@ const Hero = ({ content, socials }: HeroProps) => {
             {callToAction?.type === "mail" && (
               <Link passHref href={callToAction?.address}>
                 <a className='w-full' target={"_blank"}>
-                  <button className='w-full font-bold
+                  <button
+                    className='w-full font-bold
                   bg-theme-midnight dark:bg-transparent py-4 px-6 border rounded
                   text-theme-off-white dark:text-theme-pink  
                   dark:border-theme-pink 
-                  hover:bg-theme-pink hover:text-theme-darkest  dark:hover:text-theme-darker dark:hover:bg-theme-pink hover:border-transparent'>
+                  hover:bg-theme-pink hover:text-theme-darkest  dark:hover:text-theme-darker dark:hover:bg-theme-pink hover:border-transparent'
+                  >
                     {callToAction?.text}
                   </button>
                 </a>

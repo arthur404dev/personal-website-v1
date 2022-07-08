@@ -30,11 +30,15 @@ const Home = ({
       >
         {/* Hero Section */}
         <div id={`${component}-section-hero`}>
-          <Hero content={homeContent} socials={socialContent} />
+          <Hero
+            content={homeContent}
+            socials={socialContent}
+            components={navigationLinks}
+          />
         </div>
         {/* About Section */}
         <div id={`${component}-section-about`}>
-          <About />
+          <About components={navigationLinks} />
         </div>
         {/* Footer Section */}
         <div id={`${component}-section-footer`}>
@@ -52,10 +56,11 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     await graphCMSClient.request(homePageQuery, { locale })
   const homeContent = heroSections.find((section) => section.slug === "home")
   const contactMail = mailing.find((mail) => mail.slug === "contact")
+  const orderedLinks = navigationLinks.sort((a, b) => a.order - b.order)
 
   return {
     props: {
-      navigationLinks,
+      navigationLinks: orderedLinks,
       homeContent,
       socialContent: socials,
       contactMail,
