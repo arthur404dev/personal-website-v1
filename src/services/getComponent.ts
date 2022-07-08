@@ -10,6 +10,7 @@ const componentExtractor = (
     id: Number(componentName + Math.random() * 999999).toString(),
     isButton: false,
     target: componentName,
+    order: Math.random() * 999,
   }
 
 export default componentExtractor
