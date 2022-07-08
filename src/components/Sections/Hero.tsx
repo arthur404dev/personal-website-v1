@@ -45,7 +45,7 @@ const Hero = ({ content, socials }: HeroProps) => {
     >
       <div
         id={`${component}-container`}
-        className='w-full md:w-3/5 h-full md:h-full md:m-auto flex flex-col md:flex-row items-center justify-start p-8'
+        className='w-full md:w-3/5 h-full md:h-full md:m-auto flex flex-col md:flex-row items-center justify-between p-8'
       >
         <div
           id={`${component}-heading`}
