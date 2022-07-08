@@ -45,11 +45,11 @@ const Hero = ({ content, socials }: HeroProps) => {
     >
       <div
         id={`${component}-container`}
-        className='w-full md:w-3/5 h-full md:h-full md:m-auto flex flex-col md:flex-row items-center justify-center p-8'
+        className='w-full md:w-3/5 h-full md:h-full md:m-auto flex flex-col md:flex-row items-center justify-start p-8'
       >
         <div
           id={`${component}-heading`}
-          className='max-w-sm sm:max-w-md w-full h-3/4 md:w-1/2 md:h-full text-left flex flex-col justify-start pt-16'
+          className='max-w-sm sm:max-w-md w-full md:w-1/2 md:h-full text-left flex flex-col justify-start pt-16'
         >
           <h3
             id={`${component}-header`}
@@ -91,7 +91,7 @@ const Hero = ({ content, socials }: HeroProps) => {
               />
             </span>
           </h2>
-          <div className='h-28 flex items-center justify-center'>
+          <div className='h-28 flex items-center justify-center mb-4'>
             {callToAction?.type === "mail" && (
               <Link passHref href={callToAction?.address}>
                 <a className='w-full' target={"_blank"}>
@@ -105,7 +105,7 @@ const Hero = ({ content, socials }: HeroProps) => {
         </div>
         <div
           id={`${component}-socials`}
-          className='max-w-sm sm:max-w-md w-full h-1/4 flex items-end justify-between md:hidden'
+          className='max-w-sm sm:max-w-md w-full h-1/4 flex items-start justify-between md:hidden'
         >
           {socials.map((social) => (
             <div
